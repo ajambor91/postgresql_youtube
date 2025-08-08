@@ -54,7 +54,7 @@ $$ LANGUAGE plpgsql;
 -- Ponieważ funkcja `add_project` znajduje się w nowym schemacie, musimy nadać grupie 'manager_group' uprawnienia do jego używania.
 GRANT USAGE ON SCHEMA project_functions TO manager_group;
 -- Dodatkowo, menedżerowie muszą mieć uprawnienia do wykonywania samej funkcji.
-GRANT EXECUTE ON FUNCTION project_functions.add_project(character varying, character varying, date, date) TO manager_group;
+GRANT EXECUTE ON FUNCTION project_functions.add_project TO manager_group;
 
 -- Zmiana roli na 'jsilver' (menedżer), aby przetestować dodawanie projektu nową funkcją.
 SET ROLE jsilver;
